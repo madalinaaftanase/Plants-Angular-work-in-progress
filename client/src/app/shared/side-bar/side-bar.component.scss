@@ -1,0 +1,24 @@
+@import "../../../styles/colors.scss";
+@import "../../../styles/typography.scss";
+
+.drawer {
+  margin: 0;
+  padding: 0;
+
+  &__sidenav {
+    width: 10rem;
+  }
+
+  &__main {
+    position: relative;
+  }
+
+  &__toggle {
+    position: absolute;
+    color: $text-dark-color !important;
+    background-color: $secondary-light-color-transparent;
+    border-radius: 8px;
+    margin: 5px;
+    z-index: 10;
+  }
+}

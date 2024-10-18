@@ -1,0 +1,21 @@
+@import "./styles/colors";
+@import "./styles/typography";
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: "Times New Roman", Times, serif;
+  font-size: $font-size-default;
+  color: $text-color;
+}
+
+.mat-sidenav-container,
+.mat-sidenav,
+.mat-drawer,
+.mat-drawer-container {
+  background-color: $primary-light-color !important;
+}

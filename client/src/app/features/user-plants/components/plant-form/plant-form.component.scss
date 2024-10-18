@@ -1,0 +1,37 @@
+.form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: rgba(94, 99, 94, 0.584);
+    width: auto;
+  }
+  
+  .form-group {
+    display: flex;
+    gap: 15px;
+    align-items: center; /* Aligns labels and inputs vertically */
+    justify-content: start;
+  }
+  
+  label {
+    display: block;
+    width: 150px; /* Set a fixed width for all labels to align the input fields */
+    text-align: left; //
+    margin-right: 10px;
+  }
+  
+  input,
+  select {
+    flex-grow: 1; /* Ensures that input and select fields take the remaining space */
+    padding: 2px;
+    box-sizing: border-box;
+  }
+  
+  small {
+    color: red;
+    font-size: 12px;
+  }
+  

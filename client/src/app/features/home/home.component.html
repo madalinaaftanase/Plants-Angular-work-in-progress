@@ -1,0 +1,15 @@
+<div class="home">
+  <div class="home__intro">
+    <img src="assets/home-main.png" />
+    <span class="home__text">{{ "HOME.SLOGAN" | translate }}</span>
+  </div>
+
+  <span class="text-large home__subtitle">{{
+    "HOME.SUBTITLE" | translate
+  }}</span>
+  <div *ngIf="plants$ | async as plants" class="home__cards">
+    <div *ngFor="let plant of plants">
+      <app-plant-card [plantDetails]="plant" />
+    </div>
+  </div>
+</div>

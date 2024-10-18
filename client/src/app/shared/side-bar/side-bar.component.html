@@ -1,0 +1,12 @@
+<mat-drawer-container class="drawer" autosize hasBackdrop="false">
+  <!-- Sidebar-ul -->
+  <mat-drawer #drawer class="drawer__sidenav" mode="over">
+    <ng-content select="[sidebar-content]"></ng-content>
+  </mat-drawer>
+
+  <!-- Conținutul principal -->
+  <div class="drawer__main">
+    <button type="button" mat-button (click)="drawer.toggle()" class="drawer__toggle">Menu</button>
+    <ng-content select="[page-content]"></ng-content>
+  </div>
+</mat-drawer-container>

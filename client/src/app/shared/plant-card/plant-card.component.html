@@ -1,0 +1,28 @@
+<div class="plant">
+  <img
+    *ngIf="plantDetails.default_imageUrl; else addImageUrlWithContext"
+    [src]="plantDetails.default_imageUrl"
+    alt="{{ plantDetails.common_name }}"
+    class="plant__image"
+  />
+  <div class="plant__details">
+    <span class="plant__name">{{ plantDetails.common_name | capitalize }}</span>
+  </div>
+</div>
+
+<ng-template #addImageUrl let-plantId="plantId">
+  <div *ngIf="!editImageUrl" class="plant__addImageUrl">
+    <span>No image</span>
+    <button (click)="handleEdit()">Add image url</button>
+  </div>
+  <div *ngIf="editImageUrl" class="plant__addImageUrl">
+    <input [(ngModel)]="imageUrl" placeholder="url" />
+    <button (click)="handleImageUrl(plantId, imageUrl)" [disabled]="!imageUrl">Change</button>
+  </div>
+</ng-template>
+
+<ng-template #addImageUrlWithContext>
+  <ng-container
+    *ngTemplateOutlet="addImageUrl; context: { plantId: plantDetails._id }"
+  ></ng-container>
+</ng-template>

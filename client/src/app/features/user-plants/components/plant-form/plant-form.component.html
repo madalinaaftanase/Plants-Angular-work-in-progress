@@ -1,0 +1,154 @@
+<h4>Adauga o panta noua! Yay</h4>
+<form [formGroup]="plantForm" (ngSubmit)="onSubmit()" class="form-container">
+    <!-- Name Field -->
+    <div class="form-group">
+      <label for="common_name">Common Name*</label>
+      <input type="text" formControlName="common_name" required />
+      <div *ngIf="isInvalid('common_name')">
+        <small *ngIf="plantForm.get('common_name')?.errors?.['required']">
+          Required
+        </small>
+      </div>
+    </div>
+
+    <!-- Watering Field -->
+    <div class="form-group">
+      <label for="watering">Watering*</label>
+      <select formControlName="watering" required>
+        <option value="" disabled>Select a watering level</option>
+        <option *ngFor="let level of wateringLevels" [value]="level">
+          {{ level }}
+        </option>
+      </select>
+      <div *ngIf="isInvalid('watering')">
+        <small *ngIf="plantForm.get('watering')?.errors?.['required']">
+          Required
+        </small>
+      </div>
+    </div>
+
+    <!-- Care Level Field -->
+    <div class="form-group">
+      <label for="careLevel">Care Level*</label>
+      <select formControlName="careLevel" required>
+        <option value="" disabled>Select a care level</option>
+        <option *ngFor="let level of careLevel" [value]="level">
+          {{ level }}
+        </option>
+      </select>
+      <div *ngIf="isInvalid('careLevel')">
+        <small *ngIf="plantForm.get('careLevel')?.errors?.['required']">
+          Required
+        </small>
+      </div>
+    </div>
+
+    <!-- sunlight -->
+    <div class="form-group">
+      <label for="sunlight">Sunlight Level*</label>
+      <select formControlName="sunlight" required>
+        <option value="" disabled>Select sun light need</option>
+        <option *ngFor="let level of sunlight" [value]="level">
+          {{ level }}
+        </option>
+      </select>
+      <div *ngIf="isInvalid('sunlight')">
+        <small *ngIf="plantForm.get('sunlight')?.errors?.['required']">
+          Required
+        </small>
+      </div>
+    </div>
+
+    <!-- Scientific Name Field -->
+    <div class="form-group">
+      <label for="scientific_name">Scientific Name</label>
+      <input type="text" formControlName="scientific_name" />
+    </div>
+    <!-- Indoor Checkbox -->
+    <div class="form-group">
+      <label> Indoor* </label>
+      <input type="checkbox" formControlName="indoor" />
+    </div>
+
+    <!-- Image URL Field -->
+    <div class="form-group">
+      <label for="imageUrl">Image URL</label>
+      <input type="text" formControlName="imageUrl" />
+    </div>
+
+    <!-- Boolean Fields with True, False, or Unknown -->
+    <div class="form-group">
+      <label>Salt Tolerant</label>
+      <select formControlName="salt_tolerant">
+        <option value="true">True</option>
+        <option value="false">False</option>
+        <option value="">Unknown</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Invasive</label>
+      <select formControlName="invasive">
+        <option value="true">True</option>
+        <option value="false">False</option>
+        <option value="">Unknown</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Tropical</label>
+      <select formControlName="tropical">
+        <option value="true">True</option>
+        <option value="false">False</option>
+        <option value="">Unknown</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Flowers</label>
+      <select formControlName="flowers">
+        <option value="true">True</option>
+        <option value="false">False</option>
+        <option value="">Unknown</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Fruits</label>
+      <select formControlName="fruits">
+        <option value="true">True</option>
+        <option value="false">False</option>
+        <option value="">Unknown</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Cuisine</label>
+      <select formControlName="cuisine">
+        <option value="true">True</option>
+        <option value="false">False</option>
+        <option value="">Unknown</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Medicinal</label>
+      <select formControlName="medicinal">
+        <option value="true">True</option>
+        <option value="false">False</option>
+        <option value="">Unknown</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Poisonous to Pets</label>
+      <select formControlName="poisonous_to_pets">
+        <option value="true">True</option>
+        <option value="false">False</option>
+        <option value="">Unknown</option>
+      </select>
+    </div>
+
+    <!-- Submit Button -->
+    <button type="submit" [disabled]="plantForm.invalid">Add plant</button>
+  </form>
